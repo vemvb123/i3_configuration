@@ -3,37 +3,36 @@ set $super Mod4
 set $alt Mod1
 
 # set font
-font pango:Poppins Regular 9, FontAwesome 9
+font pango:Poppins Regular 10, FontAwesome 10, Noto Sans Symbols 10
 
 # use mouse+$super to drag floating windows to their wanted position
 floating_modifier $super
 
-# sunshine for remote streaming
-# exec --no-startup-id sunshine
+# autostart
+exec --no-startup-id sunshine
 
-# keyboard language
-# exec --no-startup-id setxkbmap no
+exec --no-startup-id hsetroot -center ~/.wallpaper.png
+exec --no-startup-id setxkbmap no
+exec --no-startup-id command -v picom >/dev/null && picom --config ~/.config/picom/picom.conf
+exec --no-startup-id command -v nm-applet >/dev/null && nm-applet
 
-# Multi monitor setup
-#exec --no-startup-id xrandr \
-#  --output HDMI-0 --mode 1920x1080 --rotate normal --pos 0x420 --primary \
-#  --output DP-2   --mode 1920x1080 --rotate left   --pos 1920x0 \
-#  --output DP-5   --mode 1920x1080 --rotate left   --pos 3000x0 \
-#  --output DP-0   --mode 1920x1080 --rotate left   --pos 4080x0
+exec --no-startup-id xrandr \
+  --output HDMI-0 --mode 1920x1080 --rotate normal --pos 0x420 --primary \
+  --output DP-2   --mode 1920x1080 --rotate left   --pos 1920x0 \
+  --output DP-5   --mode 1920x1080 --rotate left   --pos 3000x0 \
+  --output DP-0   --mode 1920x1080 --rotate left   --pos 4080x0
 
-# Background configuration
-#exec --no-startup-id feh --no-fehbg --bg-fill \
-#  ~/Pictures/1.png \
-#  ~/Pictures/2.jpg \
-#  ~/Pictures/3.jpg \
-#  ~/Pictures/4.jpg
+
+exec --no-startup-id feh --no-fehbg --bg-fill \
+  ~/Pictures/1.png \
+  ~/Pictures/2.jpg \
+  ~/Pictures/3.jpg \
+  ~/Pictures/4.jpg
+
+
 
 # start a terminal
 bindsym $super+Return exec kitty
-
-# Screenshot tool
-bindsym $super+Shift+a exec --no-startup-id maim -s ~/Pictures/Screenshots/$(date +%Y%m%d_%H%M%S).png
-
 
 # start dmenu (a program launcher)
 bindsym $super+d exec i3-dmenu-desktop --dmenu="dmenu -i -b \
@@ -45,11 +44,14 @@ bindsym Print exec scrot 'Cheese_%a-%d%b%y_%H.%M.png' -e 'xdg-open ~/$f'
 bindsym $super+l exec i3lock -i ~/.lock.png
 bindsym $super+w exec firefox
 bindsym $super+e exec thunar
+bindsym $super+Shift+a exec --no-startup-id maim -s ~/Pictures/Screenshots/$(date +%Y%m%d_%H%M%S).png
+bindsym $super+Shift+Return exec --no-startup-id i3-sensible-terminal
+bindsym $super+Tab exec --no-startup-id i3-msg workspace back_and_forth
 
 # change volume and brightness
-bindsym XF86AudioRaiseVolume exec amixer -q set Master 5%+
-bindsym XF86AudioLowerVolume exec amixer -q set Master 5%-
-bindsym XF86AudioMute exec amixer set Master toggle
+bindsym XF86AudioRaiseVolume exec --no-startup-id "command -v wpctl >/dev/null && wpctl set-volume -l 1.2 @DEFAULT_AUDIO_SINK@ 5%+ || amixer -q set Master 5%+"
+bindsym XF86AudioLowerVolume exec --no-startup-id "command -v wpctl >/dev/null && wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%- || amixer -q set Master 5%-"
+bindsym XF86AudioMute exec --no-startup-id "command -v wpctl >/dev/null && wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle || amixer set Master toggle"
 bindsym XF86MonBrightnessUp exec brightnessctl set 5%+
 bindsym XF86MonBrightnessDown exec brightnessctl set 5%-
 
@@ -88,27 +90,37 @@ bindsym $super+Shift+space focus mode_toggle
 # switch to workspace
 bindsym $super+Control+Right workspace next
 bindsym $super+Control+Left workspace prev
-bindsym $super+1 workspace 1:I
-bindsym $super+2 workspace 2:II
-bindsym $super+3 workspace 3:III
-bindsym $super+4 workspace 4:IV
-bindsym $super+5 workspace 5:V
-bindsym $super+6 workspace 6:VI
+bindsym $super+1 workspace 1:Ⅰ
+bindsym $super+2 workspace 2:Ⅱ
+bindsym $super+3 workspace 3:Ⅲ
+bindsym $super+4 workspace 4:Ⅳ
+bindsym $super+5 workspace 5:Ⅴ
+bindsym $super+6 workspace 6:Ⅵ
+bindsym $super+7 workspace 7:Ⅶ
+bindsym $super+8 workspace 8:Ⅷ
+bindsym $super+9 workspace 9:Ⅸ
+bindsym $super+0 workspace 10:Ⅹ
 
 # move focused container to workspace
-bindsym $super+Shift+1 move container to workspace 1:I
-bindsym $super+Shift+2 move container to workspace 2:II
-bindsym $super+Shift+3 move container to workspace 3:III
-bindsym $super+Shift+4 move container to workspace 4:IV
-bindsym $super+Shift+5 move container to workspace 5:V
-bindsym $super+Shift+6 move container to workspace 6:VI
+bindsym $super+Shift+1 move container to workspace 1:Ⅰ
+bindsym $super+Shift+2 move container to workspace 2:Ⅱ
+bindsym $super+Shift+3 move container to workspace 3:Ⅲ
+bindsym $super+Shift+4 move container to workspace 4:Ⅳ
+bindsym $super+Shift+5 move container to workspace 5:Ⅴ
+bindsym $super+Shift+6 move container to workspace 6:Ⅵ
+bindsym $super+Shift+7 move container to workspace 7:Ⅶ
+bindsym $super+Shift+8 move container to workspace 8:Ⅷ
+bindsym $super+Shift+9 move container to workspace 9:Ⅸ
+bindsym $super+Shift+0 move container to workspace 10:Ⅹ
 
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $super+BackSpace exec "i3-msg restart"
 
-# exit i3
-bindsym $super+q exec "i3-nagbar -t warning -m 'Really, exit?' \
--b 'Yes' 'i3-msg exit'"
+# power menu
+bindsym $super+q exec "i3-nagbar -t warning -m 'Power menu' \
+-b 'Logout' 'i3-msg exit' \
+-b 'Reboot' 'systemctl reboot' \
+-b 'Power off' 'systemctl poweroff'"
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -122,37 +134,47 @@ bindsym $super+r mode "resize"
 
 # panel
 bar {
-	status_command i3status
+	status_command /home/vemund/.config/i3status/cool-status.py
 	position top
-	workspace_min_width 24
-	padding 8px 8px 8px 8px
+	font pango:Poppins SemiBold 13, FontAwesome 11, Noto Sans Symbols 13
+	workspace_min_width 46
+	padding 2px 7px 2px 7px
 	strip_workspace_numbers yes
+	tray_output primary
 
-	colors {
-	background #141c21
-	statusline #141c21
-	separator #141c21
-
-	# colour of border, background, and text
-	focused_workspace #F54927 #F54927 #93a1a1
-	active_workspace #141c21 #141c21 #93a1a1
-	inactive_workspace #141c21 #141c21 #93a1a1
-	urgent_workspace #141c21 #b08500 #93a1a1
-	}
+	# theme-bar-start
+colors {
+background #090018
+statusline #f8f8ff
+separator #090018
+focused_workspace #00e5ff #00e5ff #090018
+active_workspace #22103a #22103a #f8f8ff
+inactive_workspace #090018 #090018 #c8b8ff
+urgent_workspace #ff2a6d #ff2a6d #090018
+}
+# theme-bar-end
 }
 
 # colour of border, background, text, indicator, and child_border
-client.focused #d12f2c #263640 #93a1a1 #696ebf #2587cc1
-client.focused_inactive #263640 #b08500 #93a1a1 #263640 #263640
-client.unfocused #263640 #b08500 #93a1a1 #263640 #263640
-client.urgent #263640 #b08500 #93a1a1 #263640 #263640
-client.placeholder #263640 #b08500 #93a1a1 #263640 #263640
-client.background #263640
+# theme-clients-start
+client.focused #00e5ff #14002b #f8f8ff #f9f871 #00e5ff
+client.focused_inactive #22103a #090018 #f8f8ff #22103a #22103a
+client.unfocused #22103a #090018 #c8b8ff #22103a #22103a
+client.urgent #ff2a6d #4a0820 #f8f8ff #ff2a6d #ff2a6d
+client.placeholder #22103a #090018 #c8b8ff #22103a #22103a
+client.background #090018
+# theme-clients-end
 
 # window rules, you can find the window class using xprop
 for_window [class=Eog|Sxiv|feh|mpv|Vlc|File-roller|Xarchiver] floating enable
 for_window [class=Eog|Sxiv|feh|mpv|Vlc|File-roller|Xarchiver] focus
 for_window [class=".*"] border pixel 8
+for_window [window_role="pop-up"] floating enable
+for_window [window_type="dialog"] floating enable
+for_window [class="Pavucontrol|Nm-connection-editor|Blueman-manager|Zenity"] floating enable
+for_window [class="Zenity"] move position center
+for_window [class="Zenity"] focus
 hide_edge_borders smart
 gaps inner 12
+gaps outer 4
 smart_gaps on
