@@ -1,6 +1,13 @@
 # Preview
 
-<img width="1919" height="1071" alt="ksnip_20261008-132119" src="https://github.com/user-attachments/assets/66ea4512-aff2-45f0-b8bb-c694a1520d0a" />
+Some different themes:
+
+<img width="1915" height="1078" alt="20261008_193606" src="https://github.com/user-attachments/assets/9dea70c7-1f1a-442d-9669-317dd49ad5fa" />
+
+<img width="1910" height="1073" alt="20261008_193648" src="https://github.com/user-attachments/assets/ad7f122e-a832-4921-a32c-2fe3e508a1be" />
+
+<img width="1875" height="1080" alt="20261008_193720" src="https://github.com/user-attachments/assets/dd7f0e3c-998c-4ae8-bc77-5e174293aa33" />
+
 
 
 
