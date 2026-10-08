@@ -1,3 +1,9 @@
+# Preview
+
+<img width="1919" height="1071" alt="ksnip_20261008-132119" src="https://github.com/user-attachments/assets/66ea4512-aff2-45f0-b8bb-c694a1520d0a" />
+
+
+
 # Installation
 Install i3 and other dependencies:
 ```
