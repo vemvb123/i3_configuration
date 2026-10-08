@@ -7,7 +7,12 @@
 # Installation
 Install i3 and other dependencies:
 ```
-sudo apt install i3 i3-wm dunst i3lock i3status suckless-tools hsetroot rxvt-unicode xsel lxappearance scrot kitty
+sudo apt install i3 i3-wm dunst i3lock i3status suckless-tools rxvt-unicode xsel lxappearance scrot
+```
+
+I also like to use kitty terminal, and maim as a screenshot tool
+```
+sudo apt install kitty maim
 ```
 
 Then clone this repository.
@@ -34,6 +39,42 @@ Choose a kitty terminal theme
 ```
 kitten themes
 ```
+
+
+## Further configuration
+The i3 config contains these values.
+These are values for background images, screenshot tool, keyboard language and multi-monitor setup.
+Change them to what you find appropriate.
+
+```
+# sunshine for remote streaming
+# exec --no-startup-id sunshine
+
+# keyboard language
+# exec --no-startup-id setxkbmap no
+
+# Multi monitor setup
+#exec --no-startup-id xrandr \
+#  --output HDMI-0 --mode 1920x1080 --rotate normal --pos 0x420 --primary \
+#  --output DP-2   --mode 1920x1080 --rotate left   --pos 1920x0 \
+#  --output DP-5   --mode 1920x1080 --rotate left   --pos 3000x0 \
+#  --output DP-0   --mode 1920x1080 --rotate left   --pos 4080x0
+
+# Background configuration
+#exec --no-startup-id feh --no-fehbg --bg-fill \
+#  ~/Pictures/1.png \
+#  ~/Pictures/2.jpg \
+#  ~/Pictures/3.jpg \
+#  ~/Pictures/4.jpg
+
+# start a terminal
+bindsym $super+Return exec kitty
+
+# Screenshot tool
+bindsym $super+Shift+a exec --no-startup-id maim -s ~/Pictures/Screenshots/$(date +%Y%m%d_%H%M%S).png
+```
+
+
 
 ## Further for ubuntu
 Ignore if you don't use ubuntu.

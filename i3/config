@@ -8,29 +8,32 @@ font pango:Poppins Regular 9, FontAwesome 9
 # use mouse+$super to drag floating windows to their wanted position
 floating_modifier $super
 
-# autostart
-exec --no-startup-id sunshine
+# sunshine for remote streaming
+# exec --no-startup-id sunshine
 
-exec --no-startup-id hsetroot -center ~/.wallpaper.png
-exec --no-startup-id setxkbmap no
+# keyboard language
+# exec --no-startup-id setxkbmap no
 
-exec --no-startup-id xrandr \
-  --output HDMI-0 --mode 1920x1080 --rotate normal --pos 0x420 --primary \
-  --output DP-2   --mode 1920x1080 --rotate left   --pos 1920x0 \
-  --output DP-5   --mode 1920x1080 --rotate left   --pos 3000x0 \
-  --output DP-0   --mode 1920x1080 --rotate left   --pos 4080x0
+# Multi monitor setup
+#exec --no-startup-id xrandr \
+#  --output HDMI-0 --mode 1920x1080 --rotate normal --pos 0x420 --primary \
+#  --output DP-2   --mode 1920x1080 --rotate left   --pos 1920x0 \
+#  --output DP-5   --mode 1920x1080 --rotate left   --pos 3000x0 \
+#  --output DP-0   --mode 1920x1080 --rotate left   --pos 4080x0
 
-
-exec --no-startup-id feh --no-fehbg --bg-fill \
-  ~/Pictures/1.png \
-  ~/Pictures/2.jpg \
-  ~/Pictures/3.jpg \
-  ~/Pictures/4.jpg
-
-
+# Background configuration
+#exec --no-startup-id feh --no-fehbg --bg-fill \
+#  ~/Pictures/1.png \
+#  ~/Pictures/2.jpg \
+#  ~/Pictures/3.jpg \
+#  ~/Pictures/4.jpg
 
 # start a terminal
 bindsym $super+Return exec kitty
+
+# Screenshot tool
+bindsym $super+Shift+a exec --no-startup-id maim -s ~/Pictures/Screenshots/$(date +%Y%m%d_%H%M%S).png
+
 
 # start dmenu (a program launcher)
 bindsym $super+d exec i3-dmenu-desktop --dmenu="dmenu -i -b \
